@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EasyTax India | File Your Income Tax Return</title>
+  <title>EasyTax India | Income Tax Filing</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -257,7 +257,7 @@
 
       <p>
         Trusted tax filing platform managed by Professional Chartered Accountants.
-        Submit your details and our expert team will contact you shortly.
+        Submit your details and our expert team will connect with you shortly.
       </p>
 
       <a href="#form-section" class="hero-btn">
@@ -395,7 +395,7 @@
 
 <script>
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbxZ7pAq2x5qbps3BjOAl5ZKlR-fy_ZaIuoKF_oVuEuwHT9KbygGbaCDx8MgLE2TiWHE/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyi8FCIsgiqKg5BF35TDXLkv3F9sDrDgMmZihz4dHhEqcWqj-JzcWLUor9qUOXfUR2I/exec";
 
 const form = document.getElementById("taxForm");
 
@@ -430,27 +430,21 @@ form.addEventListener("submit", async (e) => {
 
       method: "POST",
 
-      body: JSON.stringify(formData),
-
-      headers: {
-        "Content-Type": "application/json"
-      }
+      body: new URLSearchParams(formData)
 
     });
 
-    if(response.ok){
+    const result = await response.text();
 
-      successMessage.style.display = "block";
+    console.log(result);
 
-      form.reset();
+    successMessage.style.display = "block";
 
-    } else {
+    form.reset();
 
-      errorMessage.style.display = "block";
+  } catch(error) {
 
-    }
-
-  } catch(error){
+    console.error(error);
 
     errorMessage.style.display = "block";
 
@@ -464,4 +458,5 @@ form.addEventListener("submit", async (e) => {
 </script>
 
 </body>
+
 </html>
