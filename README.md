@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,25 +18,26 @@
 
     body{
       font-family:'Poppins',sans-serif;
-      background:#f5f9ff;
+      background:#f4f8ff;
       color:#1e293b;
-      line-height:1.6;
+      overflow-x:hidden;
     }
 
     header{
       background:linear-gradient(135deg,#0052cc,#007bff);
       color:white;
-      padding:20px 8%;
+      padding-bottom:80px;
     }
 
     nav{
       display:flex;
       justify-content:space-between;
       align-items:center;
+      padding:25px 8%;
     }
 
     .logo{
-      font-size:30px;
+      font-size:32px;
       font-weight:700;
     }
 
@@ -43,8 +45,8 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:90px 8%;
-      gap:50px;
+      gap:60px;
+      padding:60px 8%;
       flex-wrap:wrap;
     }
 
@@ -54,24 +56,24 @@
     }
 
     .hero-text h1{
-      font-size:55px;
-      margin-bottom:20px;
-      color:white;
+      font-size:58px;
+      line-height:1.2;
+      margin-bottom:25px;
     }
 
     .hero-text p{
       font-size:18px;
+      color:#dbeafe;
       margin-bottom:30px;
-      color:#e2e8f0;
     }
 
     .hero-btn{
       display:inline-block;
-      padding:15px 30px;
       background:white;
       color:#0052cc;
+      padding:15px 28px;
+      border-radius:12px;
       text-decoration:none;
-      border-radius:10px;
       font-weight:600;
       transition:0.3s;
     }
@@ -81,16 +83,16 @@
     }
 
     .form-card{
+      width:420px;
       background:white;
+      border-radius:22px;
       padding:35px;
-      border-radius:20px;
-      width:400px;
       box-shadow:0 10px 40px rgba(0,0,0,0.15);
     }
 
     .form-card h2{
-      margin-bottom:25px;
       color:#0052cc;
+      margin-bottom:25px;
       text-align:center;
     }
 
@@ -102,24 +104,25 @@
       display:block;
       margin-bottom:8px;
       font-weight:500;
+      color:#334155;
     }
 
     .input-box input,
     .input-box select{
       width:100%;
       padding:14px;
-      border:1px solid #cbd5e1;
       border-radius:10px;
+      border:1px solid #cbd5e1;
       font-size:15px;
     }
 
     .submit-btn{
       width:100%;
-      padding:15px;
+      padding:16px;
       background:#007bff;
       color:white;
       border:none;
-      border-radius:10px;
+      border-radius:12px;
       font-size:16px;
       font-weight:600;
       cursor:pointer;
@@ -130,8 +133,13 @@
       background:#0056d2;
     }
 
+    .submit-btn:disabled{
+      opacity:0.7;
+      cursor:not-allowed;
+    }
+
     section{
-      padding:80px 8%;
+      padding:90px 8%;
     }
 
     .section-title{
@@ -140,8 +148,8 @@
     }
 
     .section-title h2{
-      font-size:40px;
       color:#0052cc;
+      font-size:42px;
     }
 
     .features{
@@ -154,12 +162,12 @@
       background:white;
       padding:30px;
       border-radius:18px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.08);
+      box-shadow:0 6px 20px rgba(0,0,0,0.08);
       transition:0.3s;
     }
 
     .feature-card:hover{
-      transform:translateY(-5px);
+      transform:translateY(-6px);
     }
 
     .feature-card h3{
@@ -169,8 +177,8 @@
 
     .about{
       background:#eaf3ff;
-      border-radius:20px;
       padding:50px;
+      border-radius:22px;
       text-align:center;
     }
 
@@ -183,11 +191,33 @@
       background:#0052cc;
       color:white;
       text-align:center;
-      padding:35px 20px;
+      padding:40px 20px;
     }
 
     footer p{
       margin:8px 0;
+    }
+
+    .success-message{
+      display:none;
+      margin-top:20px;
+      background:#dcfce7;
+      color:#166534;
+      padding:15px;
+      border-radius:10px;
+      text-align:center;
+      font-weight:500;
+    }
+
+    .error-message{
+      display:none;
+      margin-top:20px;
+      background:#fee2e2;
+      color:#991b1b;
+      padding:15px;
+      border-radius:10px;
+      text-align:center;
+      font-weight:500;
     }
 
     @media(max-width:900px){
@@ -197,7 +227,7 @@
       }
 
       .hero-text h1{
-        font-size:40px;
+        font-size:42px;
       }
 
       .form-card{
@@ -220,44 +250,48 @@
   <div class="hero">
 
     <div class="hero-text">
-      <h1>File Your Income Tax Return Easily</h1>
+
+      <h1>
+        File Your Income Tax Return Easily
+      </h1>
 
       <p>
         Trusted tax filing platform managed by Professional Chartered Accountants.
-        Submit your details and our expert team will connect with you for smooth and accurate income tax filing.
+        Submit your details and our expert team will contact you shortly.
       </p>
 
-      <a href="#contact-form" class="hero-btn">
-        Get Started
+      <a href="#form-section" class="hero-btn">
+        Start Filing
       </a>
+
     </div>
 
-    <div class="form-card" id="contact-form">
+    <div class="form-card" id="form-section">
 
-      <h2>Start Your Filing</h2>
+      <h2>Get Started</h2>
 
-      <form>
+      <form id="taxForm">
 
         <div class="input-box">
           <label>Full Name</label>
-          <input type="text" placeholder="Enter your name" required>
+          <input type="text" id="name" required>
         </div>
 
         <div class="input-box">
           <label>Phone Number</label>
-          <input type="tel" placeholder="Enter your phone number" required>
+          <input type="tel" id="phone" required>
         </div>
 
         <div class="input-box">
           <label>Email Address</label>
-          <input type="email" placeholder="Enter your email" required>
+          <input type="email" id="email" required>
         </div>
 
         <div class="input-box">
           <label>Type of Filing</label>
 
-          <select required>
-            <option>Select Option</option>
+          <select id="filingType" required>
+            <option value="">Select Option</option>
             <option>Salary Income</option>
             <option>Business Income</option>
             <option>Capital Gains</option>
@@ -267,9 +301,17 @@
 
         </div>
 
-        <button class="submit-btn">
+        <button type="submit" class="submit-btn" id="submitBtn">
           Submit Details
         </button>
+
+        <div class="success-message" id="successMessage">
+          Your details have been submitted successfully.
+        </div>
+
+        <div class="error-message" id="errorMessage">
+          Something went wrong. Please try again.
+        </div>
 
       </form>
 
@@ -290,28 +332,28 @@
     <div class="feature-card">
       <h3>Professional CA Support</h3>
       <p>
-        Your return is handled by qualified Chartered Accountants with strong taxation expertise.
+        Managed by experienced Chartered Accountants with finance and taxation expertise.
       </p>
     </div>
 
     <div class="feature-card">
-      <h3>Simple Process</h3>
+      <h3>Quick & Simple Process</h3>
       <p>
-        Just submit your basic details and our team will guide you through the complete process.
+        Just share your details and our team will handle the rest smoothly.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Secure Data Handling</h3>
+      <p>
+        Your information is securely managed and kept confidential.
       </p>
     </div>
 
     <div class="feature-card">
       <h3>Fast Response</h3>
       <p>
-        Our team quickly connects with clients for smooth onboarding and tax filing support.
-      </p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Secure Handling</h3>
-      <p>
-        Your data remains confidential and handled professionally with privacy protection.
+        Our team connects quickly to begin your filing process efficiently.
       </p>
     </div>
 
@@ -323,11 +365,12 @@
 
   <div class="about">
 
-    <h2>About Us</h2>
+    <h2>About EasyTax India</h2>
 
     <p>
-      EasyTax India is a modern tax filing platform built to simplify income tax return filing for individuals, professionals, salaried employees, traders, and business owners.
-      The platform is operated under the guidance of professional Chartered Accountants with industry and finance expertise.
+      EasyTax India is a modern tax filing platform created to simplify
+      income tax return filing for salaried employees, professionals,
+      traders and businesses across India.
     </p>
 
   </div>
@@ -346,11 +389,79 @@
 
   <p>✉️ mandeeprao12345@gmail.com</p>
 
-  <p>
-    © 2026 EasyTax India. All Rights Reserved.
-  </p>
+  <p>© 2026 EasyTax India. All Rights Reserved.</p>
 
 </footer>
+
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbxZ7pAq2x5qbps3BjOAl5ZKlR-fy_ZaIuoKF_oVuEuwHT9KbygGbaCDx8MgLE2TiWHE/exec";
+
+const form = document.getElementById("taxForm");
+
+const submitBtn = document.getElementById("submitBtn");
+
+const successMessage = document.getElementById("successMessage");
+
+const errorMessage = document.getElementById("errorMessage");
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Submitting...";
+
+  successMessage.style.display = "none";
+  errorMessage.style.display = "none";
+
+  const formData = {
+
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    filingType: document.getElementById("filingType").value
+
+  };
+
+  try {
+
+    const response = await fetch(scriptURL, {
+
+      method: "POST",
+
+      body: JSON.stringify(formData),
+
+      headers: {
+        "Content-Type": "application/json"
+      }
+
+    });
+
+    if(response.ok){
+
+      successMessage.style.display = "block";
+
+      form.reset();
+
+    } else {
+
+      errorMessage.style.display = "block";
+
+    }
+
+  } catch(error){
+
+    errorMessage.style.display = "block";
+
+  }
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "Submit Details";
+
+});
+
+</script>
 
 </body>
 </html>
