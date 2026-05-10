@@ -431,9 +431,11 @@ form.addEventListener("submit", async (e) => {
 
   try {
 
-    const response = await fetch(scriptURL, {
+    await fetch(scriptURL, {
 
       method: "POST",
+
+      mode: "no-cors",
 
       headers: {
         "Content-Type": "application/json"
@@ -443,21 +445,9 @@ form.addEventListener("submit", async (e) => {
 
     });
 
-    const result = await response.json();
+    successMessage.style.display = "block";
 
-    if(result.result === "success") {
-
-      successMessage.style.display = "block";
-
-      form.reset();
-
-    } else {
-
-      errorMessage.style.display = "block";
-
-      console.log(result.message);
-
-    }
+    form.reset();
 
   } catch(error) {
 
