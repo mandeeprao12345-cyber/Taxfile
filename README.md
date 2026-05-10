@@ -431,19 +431,33 @@ form.addEventListener("submit", async (e) => {
 
   try {
 
-    await fetch(scriptURL, {
+    const response = await fetch(scriptURL, {
 
       method: "POST",
 
-      body: new URLSearchParams(formData),
+      headers: {
+        "Content-Type": "application/json"
+      },
 
-      mode: "no-cors"
+      body: JSON.stringify(formData)
 
     });
 
-    successMessage.style.display = "block";
+    const result = await response.json();
 
-    form.reset();
+    if(result.result === "success") {
+
+      successMessage.style.display = "block";
+
+      form.reset();
+
+    } else {
+
+      errorMessage.style.display = "block";
+
+      console.log(result.message);
+
+    }
 
   } catch(error) {
 
@@ -458,3 +472,5 @@ form.addEventListener("submit", async (e) => {
   submitBtn.innerText = "Submit Details";
 
 });
+
+</script>
